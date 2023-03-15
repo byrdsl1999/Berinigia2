@@ -1,0 +1,8 @@
+numpy
+networkx
+scipy
+flake8
+sphinxcontrib-napoleon
+Sphinx
+sphinx-rtd-theme
+recommonmark
