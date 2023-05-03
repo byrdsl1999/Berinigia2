@@ -81,9 +81,6 @@ class SiteFactory:
 			return Site()
 
 
-shrub_types = [
-	{'id': 1, 'name': 'Boxwood', 'competitiveness': 1, 'seedProductivity': 10, 'dispersalRatio': 0.2}
-]
 
 shrub_types = {
 	1: (1, 'Boxwood', 1, 10, 0.2),

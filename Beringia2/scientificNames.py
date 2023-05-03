@@ -55,3 +55,8 @@ class BotanicalNameGenerator:
 # Example usage
 name = BotanicalNameGenerator.generate_name_botanic()
 print('Botanical name: ' + name)
+ 
+
+
+if __name__ == '__main__':
+	main()
