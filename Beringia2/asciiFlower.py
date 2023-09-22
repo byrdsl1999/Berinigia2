@@ -1,3 +1,5 @@
+import random
+
 def generate_flower(stemLength, leafGap, flowerWidth=7, leavesAlternate=False):
     petals = [['(', ')'], ['{', '}'], ['', '']]
     sepals = ['~', '~', '∫', '≈']
@@ -64,3 +66,6 @@ def generate_flower(stemLength, leafGap, flowerWidth=7, leavesAlternate=False):
         plant += stemUnit
 
     return plant
+	
+if __name__ == '__main__':
+	print(generate_flower(random.randint(2,6), random.randint(0,3)))

@@ -4,6 +4,14 @@ This project is designed to simulate/model the develop forest growth. More featu
 
 https://en.wikipedia.org/wiki/Beringia
 
+Current state as of sept 22 2023:
+Directories:
+/Beringia/ contains the core original program that does a sort of fire simulation
+/Beringia2/ contains a bunch of independent/related toy programs. Of note are:
+clickGame.py - a first stab at a local interface for the program. Allows you to click on squares.
+asciiFlower.py - a program that creates modular ascii flowers. A stupid little thing that I would love to integrate for some janky visualizations of plants.
+
+/Beringia3/ A new low level ecological model that I'd like to tie in to the core program to replace the locale class. Also ties in species with names. Trying to develop a more mature file structure.
 ## Installation
 
 ```bash
