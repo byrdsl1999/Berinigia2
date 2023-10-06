@@ -7,6 +7,7 @@ class Plant:
         self.speciesName = None
         self.species = None
         self.health = 1
+        self.alive = True
         self.id = generate_id(prefix='PL')
         
     def __str__(self):
@@ -30,7 +31,12 @@ class Plant:
         return False
 
     def produceSeeds(self):
-        production = self.health * self.productivity
-        seedcount = stochastic_round(production)
+        seedcount = 0
+        if self.alive:
+            production = self.health * self.productivity
+            seedcount = stochastic_round(production)
         return seedcount
 
+    def die(self):
+        self.health = 0.0
+        self.alive = False

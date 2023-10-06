@@ -6,6 +6,9 @@ class PlantSpeciesLibrary:
         self.name_library = {}
         self.null_species = {}
         self.primary_null_species = None
+        
+        nullSpecies = self.create_null_species()
+        self.add_species(nullSpecies)
 
     def add_species(self, species: PlantSpecies):
         if species.id not in self.primary_library:
@@ -15,7 +18,8 @@ class PlantSpeciesLibrary:
                 self.null_species[species.id] = species
                 if (self.primary_null_species == None): 
                     self.primary_null_species = species
-                    
+
+    
     
     def get_species_by_id(self, species_id):
         return self.primary_library.get(species_id)
@@ -25,3 +29,8 @@ class PlantSpeciesLibrary:
 
     def get_all_species(self):
         return list(self.primary_library.values())
+    
+    def create_null_species(self): 
+        newSpecies = PlantSpecies('Bare Ground', 0, 0)
+        newSpecies.isNullPlant = True
+        return newSpecies

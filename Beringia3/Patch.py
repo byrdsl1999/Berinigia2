@@ -24,6 +24,7 @@ class Patch():
             if (self.currentPlant.species.isNullPlant != True):
                 self.plantHistory.append(self.currentPlant)
         newPlant = self.plant_factory.create_plant(species_key=speciesId)
+        self.currentPlant.die()
         self.currentPlant = newPlant
         self.currentPlantSpecies = newPlant.species
 
@@ -73,4 +74,7 @@ class Patch():
             newSeedCount = self.plantSpeciesLibrary.get_species_by_id(speciesId).evaluateSeedSurvival(currentSeedCount)
             self.seedsToGerminate[speciesId] = newSeedCount
         
-    
+    def disturb(self):
+        self.currentPlant.die()
+        self.insertNullPlant()
+        
