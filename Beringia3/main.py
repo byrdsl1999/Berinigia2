@@ -1,4 +1,5 @@
 # Imports
+from region import Region
 import Microhabitat as mh
 from PlantFactory import PlantFactory
 from PlantSpeciesFactory import PlantSpeciesFactory
@@ -15,7 +16,8 @@ PAUSETIME = .0
 def main():
     
     #branch1()
-    branch2()
+    #branch2()
+    branch3()
 
 
 def branch1():
@@ -149,6 +151,11 @@ def branch2():
     #print([plant.speciesName for plant in microhabitat.patches[40].plantHistory])
     #print([plant.speciesName for plant in microhabitat.patches[60].plantHistory])
 
+def branch3():
+    r = Region()
+    print(r)
+    r.show_map()
+    r.pass_time()
 
 
 def initializePlantSpeciesLibrary():

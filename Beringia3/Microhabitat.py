@@ -4,7 +4,11 @@ from PlantSpeciesLibrary import PlantSpeciesLibrary
 from collections import Counter
 from BeringiaUtilities import split_counter
 from random import sample
+from soil import Geology
 import statistics
+
+from constants import FEATURES_SWITCH
+
 
 
 class Microhabitat:
@@ -15,7 +19,12 @@ class Microhabitat:
         self.seedsForExport = Counter()
         self.population = Counter()
         self.medianCompetitiveness = 0
+        self.neighbors = list()
+        self.on_fire = False
         
+        if FEATURES_SWITCH['geology']:
+            self.geology = Geology()
+
         
         if (psl == None and pf == None):
             self.plantSpeciesLibrary = PlantSpeciesLibrary()
@@ -61,6 +70,21 @@ class Microhabitat:
     def getPatch(self, locationIndex):
         return self.patches[locationIndex]
 
+    def pass_time(self):
+        self.runSeedLifeCycle()
+
+    def runSeedLifeCycle(self):
+        self.getSeedProduction()
+        self.distributeSeeds()
+        for patch in self.patches:
+            patch.germinateSeeds()
+            patch.exterminateSeeds()
+        self.getPopCount()
+        
+        self.medianCompetitiveness = statistics.median([patch.currentPlant.species.competitiveness for patch in self.patches])
+        print ('median: ' + str(self.medianCompetitiveness))
+
+
     def getSeedProduction(self):
         for patch in self.patches:
             self.seeds += patch.makeSeeds()
@@ -81,16 +105,6 @@ class Microhabitat:
         for patch in self.patches:
             patch.exterminateSeeds()
         
-    def runSeedLifeCycle(self):
-        self.getSeedProduction()
-        self.distributeSeeds()
-        for patch in self.patches:
-            patch.germinateSeeds()
-            patch.exterminateSeeds()
-        self.getPopCount()
-        
-        self.medianCompetitiveness = statistics.median([patch.currentPlant.species.competitiveness for patch in self.patches])
-        print ('median: ' + str(self.medianCompetitiveness))
 
     def getPopCount(self):
         patchSpecies = list()
