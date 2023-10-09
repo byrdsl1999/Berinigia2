@@ -1,0 +1,32 @@
+<species_data>
+    <species>
+        <name>s1</name>
+        <competitiveness>1</competitiveness>
+        <productivity>0.3</productivity>
+    </species>
+    <species>
+        <name>s2</name>
+        <competitiveness>2</competitiveness>
+        <productivity>0.241</productivity>
+    </species>
+    <species>
+        <name>s2</name>
+        <competitiveness>3</competitiveness>
+        <productivity>0.193</productivity>
+    </species>
+    <species>
+        <name>s2</name>
+        <competitiveness>4</competitiveness>
+        <productivity>0.155</productivity>
+    </species>
+    <species>
+        <name>s2</name>
+        <competitiveness>5</competitiveness>
+        <productivity>0.125</productivity>
+    </species>
+    <species>
+        <name>s2</name>
+        <competitiveness>6</competitiveness>
+        <productivity>0.1</productivity>
+    </species>
+</species_data>

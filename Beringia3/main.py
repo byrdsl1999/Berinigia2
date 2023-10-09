@@ -152,10 +152,46 @@ def branch2():
     #print([plant.speciesName for plant in microhabitat.patches[60].plantHistory])
 
 def branch3():
-    r = Region()
+    r = Region(xdim=30, ydim=20)
     print(r)
+    r.verbose = True
+    
+    speciesList = []
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's1', competitiveness=1, productivity=0.3))
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's2', competitiveness=2, productivity=0.241))
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's3', competitiveness=3, productivity=0.193))
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's4', competitiveness=4, productivity=0.155))
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's5', competitiveness=5, productivity=0.125))
+    speciesList.append(r.plantSpeciesFactory.create_species(name = 's6', competitiveness=6, productivity=0.1))
+    
+    for i, sp in enumerate(speciesList):
+        print (sp)
+        print (r.nodes)
+        for node in r.nodeValues.values():
+            print (node)
+            node['locale'].insertPlant(i, sp.id)
+
     r.show_map()
-    r.pass_time()
+    r.get_locale(1,1).geology.elevation = 8.0
+    print(r.get_locale(1,1).geology.elevation)
+    for i in range(40):
+        r.pass_time()
+        r.show_map()
+        print(r.get_locale(0,0).population)
+
+    for i in range(40):
+        r.pass_time()
+        r.show_map()
+        print(r.get_locale(0,0).population)
+
+
+
+    print(r.get_locale(1,1).geology.elevation)
+
+    r.show_map()
+    print(r.get_locale(0,0).population)
+    print(r.get_locale(1,1).population)
+
 
 
 def initializePlantSpeciesLibrary():

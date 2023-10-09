@@ -4,7 +4,7 @@ from PlantSpeciesLibrary import PlantSpeciesLibrary
 from collections import Counter
 from BeringiaUtilities import split_counter
 from random import sample
-from soil import Geology
+from soil import Geology, BorderGeology
 import statistics
 
 from constants import FEATURES_SWITCH
@@ -12,7 +12,7 @@ from constants import FEATURES_SWITCH
 
 
 class Microhabitat:
-    def __init__(self, size=10, pf = None, psl = None):
+    def __init__(self, size=100, pf = None, psl = None):
         self.size = size
         self.patches = list()
         self.seeds = Counter()
@@ -34,19 +34,15 @@ class Microhabitat:
             self.plant_factory = pf
             if (self.plant_factory.plantSpeciesLibrary != None):
                 self.plantSpeciesLibrary = self.plant_factory.plantSpeciesLibrary
-                print(self.plantSpeciesLibrary)
-                print(self.plantSpeciesLibrary.primary_null_species)
             else:
                 self.plantSpeciesLibrary = PlantSpeciesLibrary()
                 self.plant_factory.plantSpeciesLibrary = self.plantSpeciesLibrary
 
         elif (psl != None and pf == None):
-            print('C happened')
             self.plantSpeciesLibrary = psl
             self.plant_factory = PlantFactory(psl=self.plantSpeciesLibrary)
 
         elif (psl != None and pf != None):
-            print('D happened')
             self.plantSpeciesLibrary = psl
             self.plant_factory = pf
             
@@ -82,7 +78,6 @@ class Microhabitat:
         self.getPopCount()
         
         self.medianCompetitiveness = statistics.median([patch.currentPlant.species.competitiveness for patch in self.patches])
-        print ('median: ' + str(self.medianCompetitiveness))
 
 
     def getSeedProduction(self):
@@ -116,7 +111,6 @@ class Microhabitat:
         
     def displayPopCount(self):
         name_count_counter = Counter({plant.name: count for plant, count in self.population.items()})
-        print ('Population: ' + str(name_count_counter))
         return name_count_counter
         
     def runDisturbance(self, magnitude = 1.0, type = 'fire'):
@@ -149,3 +143,42 @@ class Microhabitat:
         
         self.medianCompetitiveness = median
         return median
+    
+class NullMicrohabitat(Microhabitat):
+    def __init__(self, size=0, pf = None, psl = None):
+        # Call the constructor of the parent class (Microhabitat) with a size of 0
+        super().__init__(self)
+        # Override other attributes or set them to appropriate null values
+        self.size = size
+        self.patches = []
+        self.seeds = Counter()
+        self.seedsForExport = Counter()
+        self.population = Counter()
+        self.medianCompetitiveness = 0
+        self.neighbors = []
+        self.on_fire = False
+        if FEATURES_SWITCH['geology']:
+            self.geology = BorderGeology()
+        self.plantSpeciesLibrary = None  # Assuming no plant species library in a null microhabitat
+        self.plant_factory = None  # Assuming no plant factory in a null microhabitat
+
+    # Override methods to provide null behavior
+    def _createPatches(self):
+        self.patches = []  # No patches in a null microhabitat
+
+    def insertPlant(self, locationIndex, speciesId):
+        pass  # No plant insertion in a null microhabitat
+
+    def getPatch(self, locationIndex):
+        return None  # No patches in a null microhabitat
+
+    def pass_time(self):
+        pass  # No time passing in a null microhabitat
+
+    # Override other methods as needed
+
+    def __str__(self):
+        return "NullMicrohabitat - Size: 0 (Null)"
+
+    # Add additional methods or overrides as needed    
+
