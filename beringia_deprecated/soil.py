@@ -24,7 +24,7 @@ Todo:
 
 """
 import numpy as np
-from beringia.feature import Feature
+from beringia_deprecated.feature import Feature
 
 
 

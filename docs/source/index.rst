@@ -15,6 +15,7 @@ reference `here <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_.
 
    README.md
    beringia
+   beringiaDeprecated
 
 Indices and tables
 ==================

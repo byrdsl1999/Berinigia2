@@ -19,7 +19,7 @@
             As above but with geology interactions
             System 5(see https://en.wikipedia.org/wiki/Ecological_succession#/media/File:Forest_succession_depicted_over_time.png):
                 A system with several guilds of plants, with shifting dominance.
-                Mechanism is probably going to be some form of inhibtion/facilitation.
+                Mechanism is probably going to be some form of inhibition/facilitation.
             System 6:
                 Similar to above with individual plant species as members of guilds.
         Introduce:
@@ -37,7 +37,7 @@ from scipy import stats
 from math import floor
 import numpy as np
 
-from beringia.feature import Feature
+from beringia_deprecated.feature import Feature
 
 
 class Flora(Feature):

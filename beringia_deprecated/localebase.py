@@ -7,10 +7,10 @@
 """
 import numpy as np
 
-from beringia.soil import Geology, BorderGeology
-from beringia.constants import STATE_CONSTANTS, FEATURES_SWITCH, PLANT_COLOR_KEY
-from beringia.flora import Flora, FloraSystem0, FloraSystem1, FloraSystem2, FloraSystem3, FloraSystem4
-from beringia.fauna import BulkFauna, Fauna
+from beringia_deprecated.soil import Geology, BorderGeology
+from beringia_deprecated.constants import STATE_CONSTANTS, FEATURES_SWITCH, PLANT_COLOR_KEY
+from beringia_deprecated.flora import Flora, FloraSystem0, FloraSystem1, FloraSystem2, FloraSystem3, FloraSystem4
+from beringia_deprecated.fauna import BulkFauna, Fauna
 
 
 from math import floor

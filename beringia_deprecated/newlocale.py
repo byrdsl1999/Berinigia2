@@ -8,9 +8,9 @@
 #import numpy as np
 import simpy as sp
 
-from beringia.soil import Geology, BorderGeology
-from beringia.constants import STATE_CONSTANTS, FEATURES_SWITCH, PLANT_COLOR_KEY
-from beringia.flora import FloraSystem0, FloraSystem1, FloraSystem2, FloraSystem3
+from beringia_deprecated.soil import Geology, BorderGeology
+from beringia_deprecated.constants import STATE_CONSTANTS, FEATURES_SWITCH, PLANT_COLOR_KEY
+from beringia_deprecated.flora import FloraSystem0, FloraSystem1, FloraSystem2, FloraSystem3
 
 class Locale(object):
     """

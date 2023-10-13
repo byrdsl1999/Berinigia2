@@ -12,7 +12,7 @@ import time
 import numpy as np
 import networkx as nx
 
-from beringia.constants import STATE_CONSTANTS, COLOR_KEY
+from beringia_deprecated.constants import STATE_CONSTANTS, COLOR_KEY
 
 
 class MXRegion(object):

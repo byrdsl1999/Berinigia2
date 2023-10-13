@@ -12,8 +12,8 @@
 """
 import numpy as np
 
-from beringia.soil import Geology
-from beringia.constants import COLOR_KEY, STATE_CONSTANTS, FEATURES_SWITCH
+from beringia_deprecated.soil import Geology
+from beringia_deprecated.constants import COLOR_KEY, STATE_CONSTANTS, FEATURES_SWITCH
 
 
 class Locale(object):

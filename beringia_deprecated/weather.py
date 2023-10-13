@@ -9,7 +9,7 @@ import math
 
 import numpy
 
-from beringia.feature import Feature
+from beringia_deprecated.feature import Feature
 
 
 class Weather(Feature):

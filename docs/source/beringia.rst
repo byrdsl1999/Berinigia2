@@ -4,6 +4,8 @@ beringia package
 Submodules
 ----------
 
+beringia package contains the following submodules:
+
 beringia.constants module
 -------------------------
 
@@ -12,50 +14,10 @@ beringia.constants module
     :undoc-members:
     :show-inheritance:
 
-beringia.fauna module
------------------------
-
-.. automodule:: beringia.fauna
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 beringia.feature module
 -----------------------
 
 .. automodule:: beringia.feature
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-beringia.fire module
---------------------
-
-.. automodule:: beringia.fire
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-beringia.flora module
----------------------
-
-.. automodule:: beringia.flora
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-beringia.locale module
-----------------------
-
-.. automodule:: beringia.locale
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-beringia.localebase module
---------------------------
-
-.. automodule:: beringia.localebase
     :members:
     :undoc-members:
     :show-inheritance:
@@ -76,10 +38,11 @@ beringia.soil module
     :undoc-members:
     :show-inheritance:
 
-beringia.weather module
------------------------
+beringia.plant module
+---------------------
 
-.. automodule:: beringia.weather
+.. automodule:: beringia.plant
     :members:
     :undoc-members:
     :show-inheritance:
+

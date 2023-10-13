@@ -2,6 +2,8 @@
 ├── LICENSE
 ├── README.md
 ├── __init__.py
+├── __pycache__
+│   └── main.cpython-38.pyc
 ├── beringia
 │   ├── BeringiaUtilities.py
 │   ├── Calculator.py
@@ -26,6 +28,7 @@
 │   │   ├── PlantSpeciesFactory.cpython-38.pyc
 │   │   ├── PlantSpeciesLibrary.cpython-38.pyc
 │   │   ├── __init__.cpython-38.pyc
+│   │   ├── climate.cpython-38.pyc
 │   │   ├── constants.cpython-38.pyc
 │   │   ├── feature.cpython-38.pyc
 │   │   ├── region.cpython-38.pyc
@@ -35,7 +38,8 @@
 │   ├── feature.py
 │   ├── region.py
 │   └── soil.py
-├── beringiaDeprecated
+├── beringia_deprecated
+│   ├── __init__.py
 │   ├── __pycache__
 │   │   ├── constants.cpython-38.pyc
 │   │   ├── fauna.cpython-38.pyc
@@ -59,7 +63,8 @@
 │   ├── region.py
 │   ├── soil.py
 │   └── weather.py
-├── beringiaParts
+├── beringia_parts
+│   ├── __init__.py
 │   ├── asciiFlower.py
 │   ├── clickGame.py
 │   ├── competitionField.py
@@ -75,17 +80,48 @@
 │   ├── midpointTerrain.py
 │   ├── plateTectonics.py
 │   └── scientificNames.py
+├── conftmp.py
 ├── data
+│   ├── __init__.py
 │   └── species_data_log.xml
 ├── docs
 │   ├── Makefile
+│   ├── build
+│   │   ├── doctrees
+│   │   │   ├── environment.pickle
+│   │   │   └── index.doctree
+│   │   └── html
+│   │       ├── _sources
+│   │       │   └── index.rst.txt
+│   │       ├── _static
+│   │       │   ├── alabaster.css
+│   │       │   ├── basic.css
+│   │       │   ├── custom.css
+│   │       │   ├── doctools.js
+│   │       │   ├── documentation_options.js
+│   │       │   ├── file.png
+│   │       │   ├── language_data.js
+│   │       │   ├── minus.png
+│   │       │   ├── plus.png
+│   │       │   ├── pygments.css
+│   │       │   ├── searchtools.js
+│   │       │   └── sphinx_highlight.js
+│   │       ├── genindex.html
+│   │       ├── index.html
+│   │       ├── objects.inv
+│   │       ├── py-modindex.html
+│   │       ├── search.html
+│   │       └── searchindex.js
 │   ├── make.bat
 │   └── source
 │       ├── README.md -> ../../README.md
+│       ├── _static
+│       ├── _templates
 │       ├── beringia.rst
 │       ├── conf.py
 │       └── index.rst
 ├── file_structure.txt
+├── indexrmp.rst
 ├── main.py
 ├── mainDeprecated.py
 ├── requirements.txt
@@ -97,4 +133,4 @@
     │   └── test_microhabitat.cpython-38-pytest-6.1.1.pyc
     └── test_microhabitat.py
 
-11 directories, 87 files
+19 directories, 115 files

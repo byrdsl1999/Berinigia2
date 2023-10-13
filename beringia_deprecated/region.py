@@ -17,9 +17,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import heapq
 
-from beringia.localebase import Locale
-from beringia.localebase import Border
-from beringia.constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
+from beringia_deprecated.localebase import Locale
+from beringia_deprecated.localebase import Border
+from beringia_deprecated.constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
 from math import floor
 
 

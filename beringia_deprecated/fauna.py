@@ -1,63 +1,60 @@
 # -*- coding: utf-8 -*-
 """fauna.py
 
-    TODO:
-        Fauna will fall into two categories, bulk and unit fauna.
-        Bulk Fauna:
-            Not individuals, but instead aggregate masses of creatures in a single locale.
-            They will be tracked as non-discrete populations.
-            Prototypical of this will be insects.
-            Behaviors:
-                Eating/Consuming resources
-                    plant detritus
-                    fauna detritus
-                    live plants
-                    live unit fauna(? ticks, fleas, parasites)
-                    dead fauna
-                    Other bulk fauna
-                Mating
-                Migration
-                    Emigration
-                        Find emigration target
-                    Immigration
-                Die
-                    Get Depredated
-                    S tarve
-                    Other
+TODO:
+    Fauna falls into two categories: bulk and unit fauna.
+    Bulk Fauna:
+        These are not individuals but aggregate masses of creatures in a single locale.
+        They are tracked as non-discrete populations, such as insects.
+        
+        Behaviors:
+        - Eating/Consuming resources
+            - Plant detritus
+            - Fauna detritus
+            - Live plants
+            - Live unit fauna (e.g., ticks, fleas, parasites)
+            - Dead fauna
+            - Other bulk fauna
+        - Mating
+        - Migration
+            - Emigration
+                - Find emigration target
+            - Immigration
+        - Death
+            - Getting Depredated
+            - Starvation
+            - Other
 
+    Unit Fauna:
+        These are roving creatures tracked individually.
+        
+        Behaviors:
+        - Eating
+        - Food detection
+        - Seeking food
+        - Following prey
+        - Evading predators
+        - Mating
+        - Maintaining home ranges
+        - Herb behavior (mobile home range)
+    
+    Food Web:
+    Two types:
+    1. A simple food chain: Plants -> Herbivores -> Carnivores
+    2. A complex food web
 
-        Unit Fauna:
-            These will be (potentially) roving creatures.
-            These should ideally be tracked individually.
-            Behaviors:
-                Eating
-                Food detection
-                Seeking food.
-                following prey.
-                evading predators
-                mating
-                keeping home ranges
-                herb behavior(mobile home range?).
-        Food Web:
-            2 types:
-                A simple food chain:
-                    Plants->Herbivores->Carnivores
-                A proper food web:
-                    Something Complex
-        Beavers:
-            pond building
+    Beavers:
+    Pond building
 
-
-
-.. _Docstring example here:
-   https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
-
+For more information on docstring formatting, see the 
+[Sphinx Napoleon docstring example](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html).
 """
-from beringia.feature import Feature
-from beringia.flora import PlantBulk, Flora
+
+from beringia_deprecated.feature import Feature
+from beringia_deprecated.flora import PlantBulk, Flora
 from math import floor
 from numpy.random import binomial
-from beringia.constants import CONT_TO_DISC_FAUNA_CONVERSION
+from beringia_deprecated.constants import CONT_TO_DISC_FAUNA_CONVERSION
 #TODO import detritus object
 
 class FoodWeb(Feature):
