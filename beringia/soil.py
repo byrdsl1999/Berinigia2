@@ -24,7 +24,7 @@ Todo:
 
 """
 import numpy as np
-from feature import Feature
+from .feature import Feature
 
 
 

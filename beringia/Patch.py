@@ -1,5 +1,5 @@
-from PlantFactory import PlantFactory
-from BeringiaUtilities import generate_id
+from .PlantFactory import PlantFactory
+from .BeringiaUtilities import generate_id
 from collections import Counter
 
 

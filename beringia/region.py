@@ -16,17 +16,14 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import heapq
-
-#from beringia.localebase import Locale
-#from beringia.localebase import Border
-from constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
 from math import floor
 
-from Microhabitat import Microhabitat, NullMicrohabitat
-from PlantSpeciesLibrary import PlantSpeciesLibrary
-from PlantSpeciesFactory import PlantSpeciesFactory
-from PlantFactory import PlantFactory
+from .Microhabitat import Microhabitat, NullMicrohabitat
+from .PlantSpeciesLibrary import PlantSpeciesLibrary
+from .PlantSpeciesFactory import PlantSpeciesFactory
+from .PlantFactory import PlantFactory
 
+from .constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
 
 class Region(object):
     """Region class docs

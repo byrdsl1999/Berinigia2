@@ -1,5 +1,5 @@
-from Plant import Plant
-from BeringiaUtilities import generate_id
+from .Plant import Plant
+from .BeringiaUtilities import generate_id
 
 import random
 

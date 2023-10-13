@@ -1,4 +1,4 @@
-from BeringiaUtilities import generate_id, stochastic_round
+from .BeringiaUtilities import generate_id, stochastic_round
 
 class Plant:
     def __init__(self, competitiveness=5, productivity=5):

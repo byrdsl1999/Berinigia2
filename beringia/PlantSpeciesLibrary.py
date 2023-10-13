@@ -1,4 +1,4 @@
-from PlantSpecies import PlantSpecies
+from .PlantSpecies import PlantSpecies
 
 class PlantSpeciesLibrary:
     def __init__(self):

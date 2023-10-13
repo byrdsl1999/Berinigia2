@@ -1,14 +1,13 @@
-from Patch import Patch
-from PlantFactory import PlantFactory
-from PlantSpeciesLibrary import PlantSpeciesLibrary
+from .Patch import Patch
+from .PlantFactory import PlantFactory
+from .PlantSpeciesLibrary import PlantSpeciesLibrary
+from .BeringiaUtilities import split_counter
+from .soil import Geology, BorderGeology
+from .constants import FEATURES_SWITCH
+
 from collections import Counter
-from BeringiaUtilities import split_counter
 from random import sample
-from soil import Geology, BorderGeology
 import statistics
-
-from constants import FEATURES_SWITCH
-
 
 
 class Microhabitat:

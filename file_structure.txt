@@ -1,6 +1,7 @@
 .
 ├── LICENSE
 ├── README.md
+├── __init__.py
 ├── beringia
 │   ├── BeringiaUtilities.py
 │   ├── Calculator.py
@@ -24,6 +25,7 @@
 │   │   ├── PlantSpecies.cpython-38.pyc
 │   │   ├── PlantSpeciesFactory.cpython-38.pyc
 │   │   ├── PlantSpeciesLibrary.cpython-38.pyc
+│   │   ├── __init__.cpython-38.pyc
 │   │   ├── constants.cpython-38.pyc
 │   │   ├── feature.cpython-38.pyc
 │   │   ├── region.cpython-38.pyc
@@ -31,10 +33,8 @@
 │   ├── climate.py
 │   ├── constants.py
 │   ├── feature.py
-│   ├── main.py
 │   ├── region.py
-│   ├── soil.py
-│   └── species_data_log.xml
+│   └── soil.py
 ├── beringiaDeprecated
 │   ├── __pycache__
 │   │   ├── constants.cpython-38.pyc
@@ -76,6 +76,7 @@
 │   ├── plateTectonics.py
 │   └── scientificNames.py
 ├── data
+│   └── species_data_log.xml
 ├── docs
 │   ├── Makefile
 │   ├── make.bat
@@ -86,9 +87,14 @@
 │       └── index.rst
 ├── file_structure.txt
 ├── main.py
+├── mainDeprecated.py
 ├── requirements.txt
+├── run_tests.sh
 └── tests
     ├── __init__.py
-    └── microhabitatTest.py
+    ├── __pycache__
+    │   ├── __init__.cpython-38.pyc
+    │   └── test_microhabitat.cpython-38-pytest-6.1.1.pyc
+    └── test_microhabitat.py
 
-10 directories, 82 files
+11 directories, 87 files

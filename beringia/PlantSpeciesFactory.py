@@ -1,6 +1,6 @@
-from PlantSpecies import PlantSpecies
-from PlantSpeciesLibrary import PlantSpeciesLibrary
-from PlantNameGenerator import PlantNameGenerator
+from .PlantSpecies import PlantSpecies
+from .PlantSpeciesLibrary import PlantSpeciesLibrary
+from .PlantNameGenerator import PlantNameGenerator
 
 import xml.etree.ElementTree as ET
 import json

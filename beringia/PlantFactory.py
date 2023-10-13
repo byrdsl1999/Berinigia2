@@ -1,7 +1,7 @@
-from Plant import Plant
-from BeringiaUtilities import generate_id
-from PlantSpeciesLibrary import PlantSpeciesLibrary
-from PlantSpeciesFactory import PlantSpeciesFactory
+from .Plant import Plant
+from .BeringiaUtilities import generate_id
+from .PlantSpeciesLibrary import PlantSpeciesLibrary
+from .PlantSpeciesFactory import PlantSpeciesFactory
 
 import random
 import string
