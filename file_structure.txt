@@ -1,0 +1,94 @@
+.
+├── LICENSE
+├── README.md
+├── beringia
+│   ├── BeringiaUtilities.py
+│   ├── Calculator.py
+│   ├── Microhabitat.py
+│   ├── Patch.py
+│   ├── Plant.py
+│   ├── PlantFactory.py
+│   ├── PlantNameGenerator.py
+│   ├── PlantSpecies.py
+│   ├── PlantSpeciesFactory.py
+│   ├── PlantSpeciesLibrary.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── BeringiaUtilities.cpython-38.pyc
+│   │   ├── Calculator.cpython-38.pyc
+│   │   ├── Microhabitat.cpython-38.pyc
+│   │   ├── Patch.cpython-38.pyc
+│   │   ├── Plant.cpython-38.pyc
+│   │   ├── PlantFactory.cpython-38.pyc
+│   │   ├── PlantNameGenerator.cpython-38.pyc
+│   │   ├── PlantSpecies.cpython-38.pyc
+│   │   ├── PlantSpeciesFactory.cpython-38.pyc
+│   │   ├── PlantSpeciesLibrary.cpython-38.pyc
+│   │   ├── constants.cpython-38.pyc
+│   │   ├── feature.cpython-38.pyc
+│   │   ├── region.cpython-38.pyc
+│   │   └── soil.cpython-38.pyc
+│   ├── climate.py
+│   ├── constants.py
+│   ├── feature.py
+│   ├── main.py
+│   ├── region.py
+│   ├── soil.py
+│   └── species_data_log.xml
+├── beringiaDeprecated
+│   ├── __pycache__
+│   │   ├── constants.cpython-38.pyc
+│   │   ├── fauna.cpython-38.pyc
+│   │   ├── feature.cpython-38.pyc
+│   │   ├── flora.cpython-38.pyc
+│   │   ├── localebase.cpython-38.pyc
+│   │   ├── region.cpython-38.pyc
+│   │   └── soil.cpython-38.pyc
+│   ├── constants.py
+│   ├── fauna.py
+│   ├── feature.py
+│   ├── fire.py
+│   ├── flora.py
+│   ├── foodwebs.py
+│   ├── foodwebs.xml
+│   ├── locale.py
+│   ├── localeFactory.py
+│   ├── localebase.py
+│   ├── metrics.py
+│   ├── newlocale.py
+│   ├── region.py
+│   ├── soil.py
+│   └── weather.py
+├── beringiaParts
+│   ├── asciiFlower.py
+│   ├── clickGame.py
+│   ├── competitionField.py
+│   ├── emptyPygameScreen.py
+│   ├── erosionMap.py
+│   ├── forestGrowthOnly.py
+│   ├── forestfire.py
+│   ├── gameOfLife.py
+│   ├── hexforest.py
+│   ├── hexforest2.py
+│   ├── isleRoyal.py
+│   ├── isleRoyale2.py
+│   ├── midpointTerrain.py
+│   ├── plateTectonics.py
+│   └── scientificNames.py
+├── data
+├── docs
+│   ├── Makefile
+│   ├── make.bat
+│   └── source
+│       ├── README.md -> ../../README.md
+│       ├── beringia.rst
+│       ├── conf.py
+│       └── index.rst
+├── file_structure.txt
+├── main.py
+├── requirements.txt
+└── tests
+    ├── __init__.py
+    └── microhabitatTest.py
+
+10 directories, 82 files

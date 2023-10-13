@@ -5,7 +5,7 @@
    https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
 """
-import beringia.region as reg
+import beringiaDeprecated.region as reg
 
 
 class Session(object):

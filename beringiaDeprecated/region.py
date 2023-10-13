@@ -17,15 +17,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import heapq
 
-#from beringia.localebase import Locale
-#from beringia.localebase import Border
-from constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
+from beringia.localebase import Locale
+from beringia.localebase import Border
+from beringia.constants import STATE_CONSTANTS, PLANT_COLOR_KEY, GRAYSCALE_COLOR_KEY
 from math import floor
 
-from Microhabitat import Microhabitat, NullMicrohabitat
-from PlantSpeciesLibrary import PlantSpeciesLibrary
-from PlantSpeciesFactory import PlantSpeciesFactory
-from PlantFactory import PlantFactory
 
 
 class Region(object):
@@ -37,7 +33,7 @@ class Region(object):
         colorize (bool):
 
     """
-    def __init__(self, xdim: int = 10, ydim: int = 10, grid_type: str = '2d', flora_system: int = 1, colorize: bool = True, edges: bool = True, slow_burn: bool = False):
+    def __init__(self, xdim=10, ydim=10, grid_type='2d', flora_system=1, colorize=True, edges=True, slow_burn=False):
         self.xdim = xdim
         self.ydim = ydim
         self.grid_type = grid_type
@@ -50,6 +46,12 @@ class Region(object):
         else:
             # TODO: raise exception? default to 2d?
             self.space = nx.grid_2d_graph(self.xdim, ydim)
+        for node in self.space.nodes:
+            
+            self.space.nodes[node]['locale'] = Locale(flora_system=flora_system, location=node, region=self)
+        self.nodes = set([node for node in self.space.nodes])
+        if edges:
+            self._add_border_nodes()
         self.conversion_rates = {0: 0.2, 1: 0.1, 2: 0.15, 3: 0.05, 4: 0.1, 5: 0}
         self.time = 0
         self.colorize = colorize
@@ -57,22 +59,6 @@ class Region(object):
         self.constants = STATE_CONSTANTS
         self.verbose = False
         self.basins_current=False
-        
-        self.plantSpeciesLibrary = PlantSpeciesLibrary()
-        self.plantSpeciesFactory = PlantSpeciesFactory(self.plantSpeciesLibrary)
-        self.plantFactory = PlantFactory(self.plantSpeciesLibrary)
-        
-        self.nodeValues = dict()
-        for node in self.space.nodes:
-            #self.space.nodes[node]['locale'] = Locale(flora_system=flora_system, location=node, region=self)
-            self.space.nodes[node]['locale'] = Microhabitat(size=100, pf = self.plantFactory, psl = self.plantSpeciesLibrary)
-            self.nodeValues[node] = self.space.nodes[node]
-
-
-        self.nodes = set([node for node in self.space.nodes])
-        if edges:
-            self._add_border_nodes()
-
 
 
     #def _scheduler(self):
@@ -122,7 +108,7 @@ class Region(object):
             self.space.add_edge((self.xdim, j), (self.xdim - 1, j))
             self.border_nodes.add((self.xdim, j))
         for node in self.border_nodes:
-            self.space.nodes[node]['locale'] = NullMicrohabitat(size=0, pf = self.plantFactory, psl = self.plantSpeciesLibrary)
+            self.space.nodes[node]['locale'] = Border()
             neighbor=[i for i in nx.neighbors(self.space, node)][0]
             self.space.nodes[node]['locale'].geology.elevation_base = self.space.nodes[neighbor]['locale'].geology.elevation_base
             self.space.nodes[node]['locale'].geology.soil_depth = self.space.nodes[neighbor]['locale'].geology.soil_depth
@@ -326,8 +312,8 @@ class Region(object):
             if verbose: print("Fire is burning at:", node)
 
             for node in neighboring_nodes:
-                if self.space.nodes[node]['locale'].on_fire == 0:
-                    if self.space.nodes[node]['locale'].runDisturbance():
+                if self.space.nodes[node]['locale'].flora.on_fire == 0:
+                    if self.space.nodes[node]['locale'].catch_fire():
                         locales_on_fire.append(node)
 
                         if verbose: print("Fire has spread to:", node)
@@ -389,9 +375,9 @@ class Region(object):
             return self.space.nodes[(x, y)]['locale'].on_fire
         else:
             if colorize:
-                return PLANT_COLOR_KEY[int(floor(self.space.nodes[(x, y)]['locale'].medianCompetitiveness))]
+                return PLANT_COLOR_KEY[int(floor(self.space.nodes[(x, y)]['locale'].state))]
             else:
-                return int(floor(self.space.nodes[(x, y)]['locale'].medianCompetitiveness))
+                return int(floor(self.space.nodes[(x, y)]['locale'].state))
 
     def view_elevation(self, x=0, y=0, colorize=False):
         """view_elevation docs

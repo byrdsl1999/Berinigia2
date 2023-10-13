@@ -24,7 +24,7 @@ Todo:
 
 """
 import numpy as np
-from feature import Feature
+from beringia.feature import Feature
 
 
 
@@ -48,7 +48,6 @@ class Geology(Feature):
         self.soil_moisture = self.hydrology.water_content/self.hydrology.water_capacity
         self.soil_stability = 0.0
         self.basin_elevation = self.elevation   #If a locale is part of a basin, this value is equal to the height of the lowest point constraining the basin(ie, where water would flow out if you filled up the basin.).
-        self.outflow_target = None
         self.is_in_basin = False
         self.is_local_minimum = False
         self.aspect = self._calculate_aspect()
