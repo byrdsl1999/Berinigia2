@@ -114,11 +114,31 @@ class Microhabitat:
         
     def runDisturbance(self, magnitude = 1.0, type = 'fire'):
         size = int(self.size * magnitude)
+        if type == 'fire':
+            
+            self.on_fire = 1
         if size > len(self.patches):
             size = len(self.patches)
         patchesToDisturb = sample(self.patches, k=size)
         for patch in patchesToDisturb:
             patch.disturb()
+        if type == 'fire':
+            #self.on_fire = 0
+            pass
+        return True # I think this should check a probability for 'has caught fire', and only execute if that happended
+
+    def riskFire(self):
+        """risk_fire docs
+
+        Returns:
+            bool:
+
+        """
+        roll = np.random.uniform(0, 1)
+        if roll < STATE_CONSTANTS[self.state]['fireStartProb']:
+            self.on_fire = 1
+            return True
+        return False
 
     def calculateMedianCompetitivenessFromPopCount(self):
         # Initialize variables

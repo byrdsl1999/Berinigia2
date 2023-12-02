@@ -10,7 +10,7 @@ from beringia.BeringiaUtilities import stochastic_round
 
 import math
 
-CYCLECOUNT = 30
+CYCLECOUNT = 15
 PAUSETIME = .0
 
 def main():
@@ -152,9 +152,10 @@ def branch2():
     #print([plant.speciesName for plant in microhabitat.patches[60].plantHistory])
 
 def branch3():
-    r = Region(xdim=30, ydim=20)
+    r = Region(xdim=20, ydim=15)
     print(r)
     r.verbose = True
+    r.slow_burn = True
     
     '''speciesList = []
     speciesList.append(r.plantSpeciesFactory.create_species(name = 's1', competitiveness=1, productivity=0.3))
@@ -182,10 +183,14 @@ def branch3():
         r.pass_time()
         r.show_map()
         print(r.get_locale(0,0).population)
-    r.get_locale(1,1).on_fire = True
-    r.spread_fire()
+    r.get_locale(5,5).on_fire = True
+    r.spread_fire(verbose=True)
+    
 
-    for i in range(CYCLECOUNT):
+    for i in range(3):
+        r.get_locale(i+3,2).on_fire = False
+        print(r.get_locale(0,0).on_fire)
+
         r.pass_time()
         r.show_map()
         print(r.get_locale(0,0).population)

@@ -298,6 +298,13 @@ class Region(object):
             self.pass_time()
             self.show_map()
             time.sleep(pause)
+            
+    def spread_fire_new(self, verbose: bool = False, pause: float = 0.15, show: bool = True):
+        locales_on_fire: list[tuple] = self.scan_for_fire(verbose=verbose)
+        burnt_locales: set[tuple] = set()
+        
+        
+
 
     def spread_fire(self, verbose=False, pause=0.15, show=True):
         """Scan locales for fire, and if present, cause fire to spread to neighboring regions.
@@ -309,32 +316,45 @@ class Region(object):
             slow_burn (bool):
 
         """
+        locales_on_fire = self.scan_for_fire(verbose=verbose)
+        for locale_ in locales_on_fire:
+            fires_present = True
+            neighboring_nodes = self.space.neighbors(locale_)
+            if verbose: print("Fire is burning at:", locale_)
+            for node in neighboring_nodes:
+
+                if self.space.nodes[node]['locale'].on_fire == 0:
+                    # TODO: check probability of spreading fire between nodes.
+                    if self.space.nodes[node]['locale'].runDisturbance():
+                        locales_on_fire.append(node)
+
+                        if verbose: print("Fire has spread to:", locale_)
+
+                        if self.slow_burn and show:
+                            self.show_map()
+                            time.sleep(0.02)
+        if locales_on_fire and not self.slow_burn and show:
+            self.show_map()
+            time.sleep(pause*2)
+        self.end_fire()
+
+    def scan_for_fire(self, verbose=False):
         locales_on_fire = []
-        fires_present: bool = False
         for node in self.nodes:
             if self.space.nodes[node]['locale'].on_fire == 1:
                 locales_on_fire.append(node)
         if verbose: print("Locales initially on fire:", locales_on_fire)
         if locales_on_fire:
-            fires_present = True
             if verbose: print("Fire is present.")
-        for locale_ in locales_on_fire:
-            neighboring_nodes = self.space.neighbors(locale_)
-            if verbose: print("Fire is burning at:", node)
+        return locales_on_fire
+    
+    def end_fire(self):
+        for node in self.nodes:
+            self.space.nodes[node]['locale'].on_fire == 0
+        return True
 
-            for node in neighboring_nodes:
-                if self.space.nodes[node]['locale'].on_fire == 0:
-                    if self.space.nodes[node]['locale'].runDisturbance():
-                        locales_on_fire.append(node)
-
-                        if verbose: print("Fire has spread to:", node)
-
-                        if self.slow_burn and show:
-                            self.show_map()
-                            time.sleep(pause)
-        if fires_present and not self.slow_burn and show:
-            self.show_map()
-            time.sleep(pause*2)
+    def transfer_fire(self, source, target):
+        pass
 
     def insert_new_fauna(self, new_fauna=None, target=None, all_locales=True, target_locale=None, simple_food_chain=True):
         """insert_new_fauna docs
